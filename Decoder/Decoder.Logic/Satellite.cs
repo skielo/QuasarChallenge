@@ -6,7 +6,6 @@ namespace Decoder.Logic
     {
         public string Name { get; set; }
         public (double x, double y) Possition { get; set; }
-        public string[] Message { get; set; }
     }
 
     public enum Possition

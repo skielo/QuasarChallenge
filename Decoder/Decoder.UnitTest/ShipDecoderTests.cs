@@ -1,4 +1,5 @@
 using Decoder.Logic;
+using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace Decoder.UnitTest
@@ -10,6 +11,8 @@ namespace Decoder.UnitTest
         public void Setup()
         {
             var satellites = new Satellite[] { new Satellite { Name = "kenobi", Possition = (-500, -200) }, new Satellite { Name = "skywalker", Possition = (100, -100) }, new Satellite { Name = "sato", Possition = (500, 100) } };
+            var cnvValue = JsonConvert.SerializeObject(satellites);
+
             decoder = new ShipDecoder(satellites);
         }
 

@@ -12,7 +12,7 @@ namespace Decoder.Logic
             this.satellites = satellites;
         }
 
-        public (double, double) GetLocation(double[] distances)
+        public (double x, double y) GetLocation(double[] distances)
         {
             return TrackPosition(satellites[0].Possition.x, satellites[0].Possition.y, distances[0],
                                  satellites[1].Possition.x, satellites[1].Possition.y, distances[1],
