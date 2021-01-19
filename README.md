@@ -43,12 +43,18 @@ func GetMessage(messages ...[]string) (msg string)
 Como la posición de los satélites y la distancia desde el objeto a los mismos es conocida se puede usar la fórmula de trilateración (similar a triangulación pero esta usa distancia en lugar de ángulos). Que se calculó de la siguiente manera:
 
 Paso 1:
-- Se obtiene la fórmula de los círculos: ![primer paso](./images/trilateration-formula-1.png)
-- Expandimos los cuadrados: ![segundo paso](./images/trilateration-formula-2.png)
-- Restamos a la primer ecuación la segunda: ![tercer paso](./images/trilateration-formula-3a.png)
-	- A la segunda le extraemos la tercera: ![cuarto paso](./images/trilateration-formula-3b.png)
-- Re-escribimos la ecuación usando A, B, C, D, E, F: ![quinto paso](./images/trilateration-formula-4.png)
-- Resolvemos el sistema: ![sexto paso](./images/trilateration-formula-5.png)
+- Se obtiene la fórmula de los círculos: 
+![primer paso](./images/trilateration-formula-1.png)
+- Expandimos los cuadrados: 
+![segundo paso](./images/trilateration-formula-2.png)
+- Restamos a la primer ecuación la segunda: 
+![tercer paso](./images/trilateration-formula-3a.png)
+- A la segunda le extraemos la tercera: 
+![cuarto paso](./images/trilateration-formula-3b.png)
+- Re-escribimos la ecuación usando A, B, C, D, E, F: 
+![quinto paso](./images/trilateration-formula-4.png)
+- Resolvemos el sistema: 
+![sexto paso](./images/trilateration-formula-5.png)
 
 Esta fórmula nos debería ayudar a buscar encontrar la nave enemiga.
 ![nave](./images/satelites.png)
@@ -57,7 +63,7 @@ Esta fórmula nos debería ayudar a buscar encontrar la nave enemiga.
 
 Para la decodificación del mensaje me base en muchas consideraciones que enumero más abajo. Básicamente reviso cada posición de los vectores con texto y comparo por igual posición. Si es lo mismo o todos los demás están vacíos lo agrego a una cola de mensajes. Una vez completado el proceso desencolo los mensajes para formar el mensaje final.
 
-###### Consideraciones
+##### Consideraciones
 
 * Asumo que siempre voy a disponer de la información inicial de los 3 satélites.
 * Asumo que el desfasaje siempre ocurre en la primera posición de los vectores o al final.
