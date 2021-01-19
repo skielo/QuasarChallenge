@@ -1,0 +1,38 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy REST API
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Set up .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.102'
+
+    - name: Clean
+      run: dotnet clean './Decoder/Decoder.sln' --configuration Release && dotnet nuget locals all --clear
+
+    - name: Build with dotnet
+      run: dotnet build './Decoder/Decoder.REST/Decoder.REST.csproj' --configuration Release
+
+    - name: dotnet publish
+      run: dotnet publish './Decoder/Decoder.REST/Decoder.REST.csproj' -c Release -o ${{env.DOTNET_ROOT}}\restapi
+
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'demo-br-dev-rest'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_REST }}
+        package: ${{env.DOTNET_ROOT}}\restapi 
