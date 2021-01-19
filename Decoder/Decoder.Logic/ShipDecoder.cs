@@ -7,6 +7,8 @@ namespace Decoder.Logic
     public class ShipDecoder
     {
         private readonly Satellite[] satellites;
+        public Satellite[] Satellites { get { return satellites; }  }
+
         public ShipDecoder(Satellite[] satellites)
         {
             this.satellites = satellites;
