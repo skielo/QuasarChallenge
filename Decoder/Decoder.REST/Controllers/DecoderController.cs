@@ -1,4 +1,5 @@
 ﻿using Decoder.Logic;
+using Decoder.REST.Helpers;
 using Decoder.REST.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -28,6 +29,7 @@ namespace Decoder.REST.Controllers
         }
 
         // POST api/<DecoderController>/topsecret_split/satellite_name
+        [Authorize]
         [HttpGet("topsecret_split")]
         public IActionResult Get()
         {
@@ -81,6 +83,7 @@ namespace Decoder.REST.Controllers
         }
 
         // POST api/<DecoderController>/topsecret_split/satellite_name
+        [Authorize]
         [HttpPost("topsecret_split/{satellite_name}")]
         public IActionResult PostSatellite([FromBody] SatelliteDTO value, string satellite_name)
         {
@@ -113,6 +116,7 @@ namespace Decoder.REST.Controllers
         }
 
         // POST api/<DecoderController>/topsecret
+        [Authorize]
         [HttpPost("topsecret")]
         public IActionResult Post([FromBody] SatelliteDTO[] value)
         {
