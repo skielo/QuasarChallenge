@@ -1,4 +1,5 @@
 ﻿# Quasar Challenge
+ ![Build and deploy REST API](https://github.com/skielo/QuasarChallenge/workflows/Build%20and%20deploy%20REST%20API/badge.svg)
 
 ## Desafío 
 
