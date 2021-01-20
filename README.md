@@ -76,6 +76,7 @@ Para la decodificación del mensaje me base en muchas consideraciones que enumer
 
 * Asumo que siempre voy a disponer de la información inicial de los 3 satélites.
 * Asumo que el desfasaje siempre ocurre en la primera posición de los vectores o al final.
+* Asumo que para la misma posición de los vectores voy a encontrar el mismo string o vacio.
 
 #### Nivel 2
 
@@ -137,6 +138,14 @@ Para consumir el endpoint solicitado en el ejercicio uno primero debe obtener un
     "username":"hsolo",
     "password":"chewbacca"
 }
+La respuesta es un objeto como el siguiente:
+{
+    "id": 1,
+    "firstName": "Han",
+    "lastName": "Solo",
+    "username": "hsolo",
+    "token": "************JWT************"
+}
 ```
 > Este endpoint va a validar el usuario y password y va a generar un token JWT que debe ser utilizado para consumir el resto de los endpoints pasándolo como Autorization header
 > Como se muestra a continuación: `Key: Authorization, Value: Bearer *****JWT*****`
@@ -179,3 +188,11 @@ Igual que en el paso anterior antes de consumir el endpoint `https://demo-br-dev
 	* No se encuentra en la REST toda la información de los satélites configurados.
 	* Pese a que se encuentra la información de todos los satélites, algunos datos faltan.
 	* No se puede calcular la posición o el mensaje.
+
+## Ejecutar los UnitTest
+
+La solucion cuenta con un proyectode UnitTest para rapidamente validar los diferentes casos de la dll principal _Decoder.Logic_. 
+
+> Los casos de prueba son basados en alguna información del ejercicio. Los hice para validar mi desarrollo y obtener un MVP del producto.
+
+Para ejecutar los casos de pueba y validar que todos pasan hacer click derecho sobre la clase y hacer click en _Run Test(s)_
